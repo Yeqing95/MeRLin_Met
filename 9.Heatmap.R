@@ -89,9 +89,6 @@ filter_barcodes <- rownames(barcode_type)[barcode_type$Type %in% filter_types &
 # 合并需要保留的 barcode
 final_barcodes <- c(keep_barcodes, filter_barcodes)
 
-# ❌ 去掉指定强势 barcode
-final_barcodes <- setdiff(final_barcodes, "TCCTGCAGTA")
-
 # 筛选 merged_counts 和 barcode_type
 merged_counts_filtered <- merged_counts[final_barcodes, ]
 barcode_type_filtered <- barcode_type[final_barcodes, , drop = FALSE]
